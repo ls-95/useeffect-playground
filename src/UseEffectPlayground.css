@@ -1,1 +1,100 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
 
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 32px;
+  color: #7e22ce;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #1f2937;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.grid {
+  display: flex;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.section {
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.section h3 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.section .count,
+.section .info {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.section .note {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 8px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background-color: #3b82f6;
+}
+
+.btn.primary:hover {
+  background-color: #2563eb;
+}
+
+.btn.secondary {
+  background-color: #6b7280;
+}
+
+.btn.secondary:hover {
+  background-color: #4b5563;
+}
+
+.blue {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+}

@@ -1,5 +1,5 @@
 import "./UseEffectPlayground.css";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 
 export default function UseEffectPlayground() {
   const [count, setCount] = useState(0);
@@ -28,17 +28,28 @@ export default function UseEffectPlayground() {
     <div className="container">
       <h1 className="title">useEffect Playground</h1>
       <div className="card">
-        <h2 className="subtitle"></h2>
         <div className="grid">
           <div className="section blue">
             <h3>Counter (useEffect with [count])</h3>
-            <p>Count: {count}</p>
+            <p className="count">Count: {count}</p>
             <div className="btn-group">
-              <button onClick={() => setCount(count + 1)}>+1</button>
-              <button onClick={() => setCount(count - 1)}>-1</button>
-              <button onClick={() => setCount(0)}>Reset</button>
+              <button
+                onClick={() => setCount(count + 1)}
+                className="btn primary"
+              >
+                +1
+              </button>
+              <button
+                onClick={() => setCount(count - 1)}
+                className="btn primary"
+              >
+                -1
+              </button>
+              <button onClick={() => setCount(0)} className="btn secondary">
+                Reset
+              </button>
             </div>
-            <p>useEffect can be seen in the console</p>
+            <p className="note">useEffect can be seen in the console</p>
           </div>
         </div>
       </div>

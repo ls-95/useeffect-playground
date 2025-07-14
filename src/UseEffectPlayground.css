@@ -94,9 +94,20 @@
   background-color: #4b5563;
 }
 
-.blue {
-  background-color: #eff6ff;
-  color: #1d4ed8;
+.btn.start {
+  background-color: #10b981;
+}
+
+.btn.start:hover {
+  background-color: #059669;
+}
+
+.btn.stop {
+  background-color: #ef4444;
+}
+
+.btn.stop:hover {
+  background-color: #dc2626;
 }
 
 .input {
@@ -113,6 +124,11 @@
   box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5);
 }
 
+.blue {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+}
+
 .green {
   background-color: #ecfdf5;
   color: #047857;
@@ -121,4 +137,9 @@
 .yellow {
   background-color: #fefce8;
   color: #ca8a04;
+}
+
+.red {
+  background-color: #fef2f2;
+  color: #b91c1c;
 }

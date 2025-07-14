@@ -1,10 +1,12 @@
 import "./UseEffectPlayground.css";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 
 export default function UseEffectPlayground() {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [seconds, setSeconds] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
     console.log("This runs on every render, Current count: ", count);
@@ -42,6 +44,27 @@ export default function UseEffectPlayground() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    let interval;
+    if (isRunning) {
+      interval = setInterval(() => {
+        setSeconds((prev) => prev + 1);
+      }, 1000);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isRunning]);
+
+  useEffect(() => {
+    console.log("Either count OR name changed!");
+  }, [count, name]);
+
+  const resetTimer = () => {
+    setSeconds(0);
+    setIsRunning(false);
+  };
 
   return (
     <div className="container">
@@ -88,7 +111,21 @@ export default function UseEffectPlayground() {
             <p className="info">Window Width: {windowWidth}px</p>
             <p className="note">Resize the browser window</p>
           </div>
-          <div className="section red"></div>
+          <div className="section red">
+            <h3>Timer (useEffect with cleanup)</h3>
+            <p className="info">Timer: {seconds} seconds</p>
+            <div className="btn-group">
+              <button
+                onClick={() => setIsRunning(!isRunning)}
+                className={`btn ${isRunning ? "stop" : "start"}`}
+              >
+                {isRunning ? "Stop" : "Start"}
+              </button>
+              <button onClick={resetTimer} className="btn secondary">
+                Reset
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

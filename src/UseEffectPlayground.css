@@ -98,3 +98,27 @@
   background-color: #eff6ff;
   color: #1d4ed8;
 }
+
+.input {
+  width: 80%;
+  padding: 8px;
+  margin-top: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5);
+}
+
+.green {
+  background-color: #ecfdf5;
+  color: #047857;
+}
+
+.yellow {
+  background-color: #fefce8;
+  color: #ca8a04;
+}

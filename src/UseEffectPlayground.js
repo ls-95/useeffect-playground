@@ -1,9 +1,10 @@
 import "./UseEffectPlayground.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 
 export default function UseEffectPlayground() {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("");
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     console.log("This runs on every render, Current count: ", count);
@@ -31,6 +32,16 @@ export default function UseEffectPlayground() {
       console.log(`Hello, ${name}`);
     }
   }, [name]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className="container">
@@ -72,7 +83,11 @@ export default function UseEffectPlayground() {
               {name ? `Hello, ${name}!` : "Type something please"}
             </p>
           </div>
-          <div className="section yellow"></div>
+          <div className="section yellow">
+            <h3>Window Width (useEffect with cleanup)</h3>
+            <p className="info">Window Width: {windowWidth}px</p>
+            <p className="note">Resize the browser window</p>
+          </div>
           <div className="section red"></div>
         </div>
       </div>

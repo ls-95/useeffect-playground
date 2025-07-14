@@ -128,6 +128,36 @@ export default function UseEffectPlayground() {
           </div>
         </div>
       </div>
+      <div className="card">
+        <h2>What's happening?</h2>
+        <div className="info-box">
+          <h3>useEffect Types:</h3>
+          <ul>
+            <li>
+              <strong>No dependencies:</strong> Runs on every render
+            </li>
+            <li>
+              <strong>Empty array []:</strong> Runs ONCE on mount
+            </li>
+            <li>
+              <strong>With dependencies [count]:</strong> Runs when specific
+              values change
+            </li>
+            <li>
+              <strong>Multiple dependencies [count, name]:</strong> Runs when
+              ANY dependency changes
+            </li>
+          </ul>
+        </div>
+        <div className="info-box">
+          <h3>Cleanup Functions:</h3>
+          <p>
+            The return function in useEffect runs when the component unmounts or
+            before the next effect runs. This is crucial for cleaning up event
+            listeners, timers, or subscriptions.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

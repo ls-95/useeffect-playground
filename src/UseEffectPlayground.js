@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 export default function UseEffectPlayground() {
   const [count, setCount] = useState(0);
+  const [name, setName] = useState("");
 
   useEffect(() => {
     console.log("This runs on every render, Current count: ", count);
@@ -23,6 +24,13 @@ export default function UseEffectPlayground() {
       document.title = `Count: ${count}`;
     }
   }, [count]);
+
+  useEffect(() => {
+    console.log("Name changed! New name: ", name);
+    if (name.length > 0) {
+      console.log(`Hello, ${name}`);
+    }
+  }, [name]);
 
   return (
     <div className="container">
@@ -51,6 +59,21 @@ export default function UseEffectPlayground() {
             </div>
             <p className="note">useEffect can be seen in the console</p>
           </div>
+          <div className="section green">
+            <h3>Name input (useEffect with [name])</h3>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Type your name..."
+              className="input"
+            />
+            <p className="note">
+              {name ? `Hello, ${name}!` : "Type something please"}
+            </p>
+          </div>
+          <div className="section yellow"></div>
+          <div className="section red"></div>
         </div>
       </div>
     </div>
